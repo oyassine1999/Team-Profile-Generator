@@ -25,7 +25,10 @@ const addEmployee = (team, type) => {
     const email = rl.question("Email: ");
 
     if (type === "Engineer") {
-        const github = rl.question("Github: ");
+        let github = rl.question("Github: ");
+        if (!github) {
+            github = "N/A"
+        }
         const employee = new Engineer(name, id, email, github);
         employee.role = "Engineer";
         team.push(employee);
